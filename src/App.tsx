@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
@@ -8,18 +8,26 @@ function App() {
   const [data, setData] = useState<any>([]);
 
   useEffect(() => {
-    fetchPokemon(40, 20).then((res) => setData(res));
+    fetchPokemon(100, 20).then((res) => setData(res));
   }, []);
 
   return (
-    <div>
+    <Box >
       <Navbar />
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          // justifyContent: "center",
+          // alignItems: "center",
+        }}
+      >
         {data.map((el: Object, id: number) => {
           return <Card key={id} {...el} />;
         })}
       </Box>
-    </div>
+      <Pagination count={10} color="primary" />
+    </Box>
   );
 }
 
