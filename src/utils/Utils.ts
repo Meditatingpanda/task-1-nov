@@ -23,7 +23,7 @@ const fetchPokemon = async (offset: number, limit: number): Promise<any> => {
       image: genImghelper(index + 1 + offset),
     };
   });
-  console.log(pokemon); //check the data
+ // console.log(pokemon); //check the data
   return pokemon;
 };
 

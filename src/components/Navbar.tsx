@@ -51,7 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function  Navbar() {
+export default function  Navbar({setQuery}:any) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -79,6 +79,7 @@ export default function  Navbar() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
+              onChange={(e)=>setQuery(e.target.value)}
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
