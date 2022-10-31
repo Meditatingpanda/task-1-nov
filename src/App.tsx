@@ -6,20 +6,26 @@ import { fetchPokemon } from "./utils/Utils";
 
 function App() {
   const [data, setData] = useState<any>([]);
+  const [originalData, setoriginalData] = useState<any>([]);
   const [query, setQuery] = useState<string>("");
 
   useEffect(() => {
-    fetchPokemon(100, 20).then((res) => setData(res));
+    fetchPokemon(0, 20).then((res) => setoriginalData(res));
   }, []);
-  console.log(query);
+  useEffect(() => {
+    setData(originalData);
+  }, [originalData]);
+
   const handleQuery = () => {
     let filteredData;
     if (query.length > 0) {
-      filteredData = data.filter((item: any) => item.name.includes(query));
+      filteredData = originalData.filter((item: any) =>
+        item.name.includes(query)
+      );
     } else {
-      filteredData = data;
+      filteredData = originalData;
     }
-    console.log(filteredData);
+    //console.log(filteredData);
     setData(filteredData);
   };
   useEffect(() => {
@@ -41,8 +47,8 @@ function App() {
           return <Card key={id} {...el} />;
         })}
       </Box>
-      <Box sx={{display:'flex',justifyContent:"center",mt:4}}>
-      <Pagination count={10} color="primary"   />
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <Pagination count={10} color="primary" />
       </Box>
     </Box>
   );
