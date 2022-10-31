@@ -8,9 +8,10 @@ function App() {
   const [data, setData] = useState<any>([]);
   const [originalData, setoriginalData] = useState<any>([]);
   const [query, setQuery] = useState<string>("");
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    fetchPokemon(0, 20).then((res) => setoriginalData(res));
+    fetchPokemon(0, 30).then((res) => setoriginalData(res));
   }, []);
   useEffect(() => {
     setData(originalData);
@@ -39,7 +40,8 @@ function App() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          // justifyContent: "center",
+          justifyContent: "center",
+          mt: 5,
           // alignItems: "center",
         }}
       >
@@ -48,7 +50,17 @@ function App() {
         })}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-        <Pagination count={10} color="primary" />
+        <Pagination
+          count={10}
+          color="primary"
+          size="large"
+          onChange={(e, page) => {
+            fetchPokemon((page - 1) * 30, 30).then((res) => {
+              setoriginalData(res);
+              setCount(page);
+            });
+          }}
+        />
       </Box>
     </Box>
   );
