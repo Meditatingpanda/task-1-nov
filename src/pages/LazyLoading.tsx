@@ -6,10 +6,10 @@ const ImageComponent = React.lazy(() => import("../components/Card"));
 
 const LazyLoading = () => {
   const [listItems, setListItems] = useState<Pokemon[]>([]);
-  const [isFetching, setIsFetching] = useState(false);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
   const [filteredData, setFilteredData] = useState<Pokemon[]>([]);
   const [query, setQuery] = useState<string>("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
     fetchData();
@@ -25,7 +25,10 @@ const LazyLoading = () => {
         document.documentElement.offsetHeight ||
       isFetching
     )
+     {
+      console.log(isFetching);
       return;
+     }
     setIsFetching(true);
     console.log(isFetching);
   };
@@ -38,7 +41,7 @@ const LazyLoading = () => {
     } else {
       filteredData = listItems;
     }
-    console.log(filteredData);
+    //console.log(filteredData);
     setFilteredData(filteredData);
   };
 
@@ -48,7 +51,7 @@ const LazyLoading = () => {
 
   const fetchData = async () => {
     setTimeout(async () => {
-      const result = await fetchPokemon((page - 1) * 40, 40);
+      const result = await fetchPokemon((page - 1) * 70, 70);
       // const data = await result.json();
       setPage(page + 1);
       setListItems((pre: Pokemon[]) => {
@@ -70,7 +73,7 @@ const LazyLoading = () => {
     <>
       <Navbar setQuery={setQuery} />
       <Toolbar />
-      <Box sx={{overflow:'hidden'}}>
+      <Box >
         {filteredData.map((listItem: Pokemon, id: number) => (
           <div className="card" key={id}>
             <Suspense
