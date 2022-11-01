@@ -1,10 +1,10 @@
-import { Box, Pagination } from "@mui/material";
+import { Box, Pagination, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
-import Card from "./components/Card";
-import Navbar from "./components/Navbar";
-import { fetchPokemon } from "./utils/Utils";
+import Card from "../components/Card";
+import Navbar from "../components/Navbar";
+import { fetchPokemon } from "../utils/Utils";
 
-function App() {
+function Paginate() {
   const [data, setData] = useState<any>([]);
   const [originalData, setoriginalData] = useState<any>([]);
   const [query, setQuery] = useState<string>("");
@@ -36,6 +36,7 @@ function App() {
   return (
     <Box>
       <Navbar setQuery={setQuery} />
+      <Toolbar/>
       <Box
         sx={{
           display: "flex",
@@ -66,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default Paginate;
