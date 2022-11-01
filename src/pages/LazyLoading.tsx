@@ -73,7 +73,7 @@ const LazyLoading = () => {
     <>
       <Navbar setQuery={setQuery} />
       <Toolbar />
-      <Box >
+      <Box sx={{overflowX:'hidden'}} >
         {filteredData.map((listItem: Pokemon, id: number) => (
           <div className="card" key={id}>
             <Suspense

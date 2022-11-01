@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,8 +70,10 @@ export default function Navbar({ setQuery }: any) {
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            component={Link}
+            href="/"
+          
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } ,color:"white"}}
           >
             PokeDesk
           </Typography>
