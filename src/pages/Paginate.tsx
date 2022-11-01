@@ -9,7 +9,6 @@ function Paginate() {
   const [originalData, setoriginalData] = useState<any>([]);
   const [query, setQuery] = useState<string>("");
 
-
   useEffect(() => {
     fetchPokemon(0, 30).then((res) => setoriginalData(res));
   }, []);
@@ -36,7 +35,7 @@ function Paginate() {
   return (
     <Box>
       <Navbar setQuery={setQuery} />
-      <Toolbar/>
+      <Toolbar />
       <Box
         sx={{
           display: "flex",
@@ -58,7 +57,6 @@ function Paginate() {
           onChange={(e, page) => {
             fetchPokemon((page - 1) * 30, 30).then((res) => {
               setoriginalData(res);
-             
             });
           }}
         />

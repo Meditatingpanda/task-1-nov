@@ -1,7 +1,8 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import React, { FC } from "react";
 
-const Card: FC<any> = ({name,url,image}) => {
+
+const Card: FC<any> = ({name,url,image,lazy}) => {
  
   return (
     <Box
@@ -9,7 +10,7 @@ const Card: FC<any> = ({name,url,image}) => {
         display: "flex",
         alignItems: "center",
         p: 2,
-        width: "10rem",
+        width: !lazy? "10rem":'100%',
         borderRadius: "10px",
       }}
       m={1}

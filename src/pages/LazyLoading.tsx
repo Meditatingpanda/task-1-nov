@@ -48,7 +48,7 @@ const LazyLoading = () => {
 
   const fetchData = async () => {
     setTimeout(async () => {
-      const result = await fetchPokemon((page - 1) * 100, 100);
+      const result = await fetchPokemon((page - 1) * 40, 40);
       // const data = await result.json();
       setPage(page + 1);
       setListItems((pre: Pokemon[]) => {
@@ -70,15 +70,7 @@ const LazyLoading = () => {
     <>
       <Navbar setQuery={setQuery} />
       <Toolbar />
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          mt: 5,
-          // alignItems: "center",
-        }}
-      >
+      <Box sx={{overflow:'hidden'}}>
         {filteredData.map((listItem: Pokemon, id: number) => (
           <div className="card" key={id}>
             <Suspense
@@ -88,6 +80,7 @@ const LazyLoading = () => {
                 name={listItem.name}
                 image={listItem.image}
                 url={listItem.url}
+                lazy={true}
               />
             </Suspense>
           </div>
