@@ -1,3 +1,38 @@
+
+# internship task
+
+codes for the tasks
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Meditatingpanda/task-1-nov.git
+```
+
+Go to the project directory
+
+```bash
+  cd task-1-nov
+```
+
+Install dependencies
+
+```bash
+   yarn install
+```
+
+start the project Locally
+
+```bash
+   yarn start
+```
+
+
+
 <img width="1439" alt="Screenshot 2022-11-01 at 1 08 05 PM" src="https://user-images.githubusercontent.com/83230804/199183161-4518b8df-41c4-49f4-9b84-68a377860b98.png">
 
 <img width="1440" alt="Screenshot 2022-11-01 at 1 10 15 PM" src="https://user-images.githubusercontent.com/83230804/199183228-3b707ef6-3798-4bff-8316-da1fb9c0e4a3.png">
