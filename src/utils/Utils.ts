@@ -7,6 +7,11 @@ const genImghelper = (img: number): string => {
 //api path
 //https://pokeapi.co/api/v2/pokemon/
 const baseUrl: string = "https://pokeapi.co/api/v2/pokemon/";
+type Pokemon = {
+  name: string;
+  url: string;
+  image: string;
+}
 
 const fetchPokemon = async (offset: number, limit: number): Promise<any> => {
   const res = await axios.get(baseUrl, {
@@ -27,4 +32,4 @@ const fetchPokemon = async (offset: number, limit: number): Promise<any> => {
   return pokemon;
 };
 
-export { genImghelper, fetchPokemon };
+export { genImghelper, fetchPokemon, Pokemon };

@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState<any>([]);
   const [originalData, setoriginalData] = useState<any>([]);
   const [query, setQuery] = useState<string>("");
-  const [count, setCount] = useState<number>(0);
+
 
   useEffect(() => {
     fetchPokemon(0, 30).then((res) => setoriginalData(res));
@@ -21,7 +21,7 @@ function App() {
     let filteredData;
     if (query.length > 0) {
       filteredData = originalData.filter((item: any) =>
-        item.name.includes(query)
+        item.name.includes(query.toLowerCase())
       );
     } else {
       filteredData = originalData;
@@ -57,7 +57,7 @@ function App() {
           onChange={(e, page) => {
             fetchPokemon((page - 1) * 30, 30).then((res) => {
               setoriginalData(res);
-              setCount(page);
+             
             });
           }}
         />
