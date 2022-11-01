@@ -48,7 +48,7 @@ const LazyLoading = () => {
 
   const fetchData = async () => {
     setTimeout(async () => {
-      const result = await fetchPokemon((page - 1) * 40, 40);
+      const result = await fetchPokemon((page - 1) * 100, 100);
       // const data = await result.json();
       setPage(page + 1);
       setListItems((pre: Pokemon[]) => {
